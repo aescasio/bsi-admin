@@ -6,6 +6,7 @@ use App\Models\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Storage;
 
 class RegisterController extends Controller
 {
@@ -62,10 +63,15 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $file = request()->file('avatar');
-        $ext = $file->guestClientExtension();
+        if(!is_null($file = request()->file('avatar'))){
+            $last_id = \DB::table('INFORMATION_SCHEMA.TABLES')
+                ->where('TABLE_SCHEMA','bsi-admin')
+                ->where('TABLE_NAME','users')
+                ->pluck('AUTO_INCREMENT');
+            $ext = $file->guessClientExtension();
+            $file->storeAs('/public/avatars/'.$last_id[0], 'avatar.'.$ext );
+        }
 
-dd($file->storeAs('avatars/'.auth()->id(), 'avatar.jpg'));
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
