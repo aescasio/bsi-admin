@@ -32,7 +32,7 @@
                                     <a href="#">
                                         <div class="pull-left">
                                             <!-- User Image -->
-                                            <img src="{{asset('/public/img/user_default.jpg')}}" class="img-circle" alt="User Image">
+                                            <img src="{{asset('/img/user_default.jpg')}}" class="img-circle" alt="User Image">
                                         </div>
                                         <!-- Message title and timestamp -->
                                         <h4>

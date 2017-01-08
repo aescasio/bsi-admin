@@ -13,7 +13,7 @@
 
 
 Route::group( [ 'middleware' => 'web' ] , function () {
-//    Auth::routes();
+    //Auth::routes();
 
     Route::auth();
 

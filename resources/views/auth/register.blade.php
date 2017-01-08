@@ -42,7 +42,7 @@
     <div class="register-box-body">
         <p class="login-box-msg">Register a new membership</p>
 
-        <form method="post" action="{{ url('/register') }}">
+        <form method="post" action="{{ url('/register') }}" enctype="multipart/form-data">
 
             {!! csrf_field() !!}
 
@@ -90,14 +90,20 @@
                 @endif
             </div>
 
+            <div class="form-group has-feedback">
+                <input type="file" name="avatar"></input>
+                <span class="glyphicon glyphicon-file fa-pull-right"></span>
+            </div>
+
             <div class="row">
                 <div class="col-xs-8">
                     <div class="checkbox icheck">
                         <label>
-                            <input type="checkbox"> I agree to the <a href="#">terms</a>
+                            <input type="checkbox"><a href="#">I agree to the terms</a>
                         </label>
                     </div>
                 </div>
+
                 <!-- /.col -->
                 <div class="col-xs-4">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
