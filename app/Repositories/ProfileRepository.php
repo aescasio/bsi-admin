@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Profile;
+use App\Models\User;
 use InfyOm\Generator\Common\BaseRepository;
 
 class ProfileRepository extends BaseRepository
@@ -13,8 +13,6 @@ class ProfileRepository extends BaseRepository
     protected $fieldSearchable = [
         'name',
         'email',
-        'password',
-        'remember_token'
     ];
 
     /**
@@ -22,6 +20,6 @@ class ProfileRepository extends BaseRepository
      **/
     public function model()
     {
-        return Profile::class;
+        return User::class;
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateProfileRequest;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Models\User;
 use App\Repositories\ProfileRepository;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
@@ -29,11 +30,12 @@ class ProfileController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $this->profileRepository->pushCriteria(new RequestCriteria($request));
-        $profiles = $this->profileRepository->all();
+//        $this->profileRepository->pushCriteria(new RequestCriteria($request));
+//        $profiles = $this->profileRepository->all();
+        $profile = User::find(auth()->id());
 
         return view('profiles.index')
-            ->with('profiles', $profiles);
+            ->with('profile', $profile);
     }
 
     /**

@@ -1,3 +1,7 @@
+<div class="pull-left image">
+    <img src="{{ Storage::disk('local')->url('/avatars/'.auth()->id().'/avatar.jpeg', 'Contents')  }}" class="img-circle"
+         alt="User Image"/>
+</div>
 <table class="table table-responsive" id="profiles-table">
     <thead>
         <th>Name</th>

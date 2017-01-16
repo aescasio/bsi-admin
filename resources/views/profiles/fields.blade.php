@@ -16,11 +16,17 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
-<!-- Remember Token Field -->
+<!-- Password Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('remember_token', 'Remember Token:') !!}
-    {!! Form::text('remember_token', null, ['class' => 'form-control']) !!}
+    {!! Form::label('password', 'Confirm Password:') !!}
+    {!! Form::password('confirm', ['class' => 'form-control']) !!}
 </div>
+
+{{--<!-- Remember Token Field -->--}}
+{{--<div class="form-group col-sm-6">--}}
+    {{--{!! Form::label('remember_token', 'Remember Token:') !!}--}}
+    {{--{!! Form::text('remember_token', null, ['class' => 'form-control']) !!}--}}
+{{--</div>--}}
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
