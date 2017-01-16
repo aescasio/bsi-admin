@@ -63,6 +63,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         if(!is_null($file = request()->file('avatar'))){
             $last_id = \DB::table('INFORMATION_SCHEMA.TABLES')
                 ->where('TABLE_SCHEMA','bsi-admin')
