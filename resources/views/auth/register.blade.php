@@ -45,7 +45,7 @@
         <form method="post" action="{{ url('/register') }}" enctype="multipart/form-data">
 
             {!! csrf_field() !!}
-            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 
             <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
                 <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Full Name">
