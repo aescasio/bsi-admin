@@ -52,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg',
         ]);
     }
 
@@ -65,11 +66,12 @@ class RegisterController extends Controller
     {
 
         if(!is_null($file = request()->file('avatar'))){
+            $ext = $file->guessClientExtension();
+
             $last_id = \DB::table('INFORMATION_SCHEMA.TABLES')
                 ->where('TABLE_SCHEMA','bsi-admin')
                 ->where('TABLE_NAME','users')
                 ->pluck('AUTO_INCREMENT');
-            $ext = $file->guessClientExtension();
             $file->storeAs('/public/avatars/'.$last_id[0], 'avatar.'.$ext );
         }
 
@@ -77,6 +79,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'avatar' => $ext,
         ]);
     }
 }

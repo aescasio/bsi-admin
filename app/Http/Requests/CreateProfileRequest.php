@@ -25,6 +25,7 @@ class CreateProfileRequest extends FormRequest
      */
     public function rules()
     {
-        return Profile::$rules;
+        return Profile::$rules_create;
     }
+
 }

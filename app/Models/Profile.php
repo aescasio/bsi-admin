@@ -48,8 +48,17 @@ class Profile extends Model
      *
      * @var array
      */
-    public static $rules = [
-        
+    public static $rules_create = [
+        'email' => 'required',
+        'password' => 'required|confirmed|min:5',
+        'password_confirmation' => 'required',
+        'photo' => 'required|image|mimes:jpeg,png,jpg,gif,bmp,svg'
+    ];
+
+    public static $rules_update = [
+        'email' => 'required',
+        'password' => 'confirmed|min:5',
+        'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,bmp,svg'
     ];
 
     

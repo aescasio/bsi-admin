@@ -13,6 +13,7 @@ class ProfileRepository extends BaseRepository
     protected $fieldSearchable = [
         'name',
         'email',
+        'avatar'
     ];
 
     /**
@@ -20,6 +21,8 @@ class ProfileRepository extends BaseRepository
      **/
     public function model()
     {
-        return User::class;
+        return Profile::class;
     }
+
+
 }

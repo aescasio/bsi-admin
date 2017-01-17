@@ -45,6 +45,7 @@
         <form method="post" action="{{ url('/register') }}" enctype="multipart/form-data">
 
             {!! csrf_field() !!}
+            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
             <div class="form-group has-feedback{{ $errors->has('name') ? ' has-error' : '' }}">
                 <input type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Full Name">
@@ -91,8 +92,13 @@
             </div>
 
             <div class="form-group has-feedback">
-                <input type="file" name="avatar"></input>
+                <input type="file" accept="image/*"></input>
                 <span class="glyphicon glyphicon-file fa-pull-right"></span>
+                @if ($errors->first('avatar'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('avatar') }}</strong>
+                    </span>
+                @endif
             </div>
 
             <div class="row">

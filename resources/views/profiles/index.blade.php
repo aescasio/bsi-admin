@@ -18,19 +18,19 @@
                     {{--@include('profiles.table')--}}
                             <!-- Id Field -->
                 <div class="pull-left image">
-                    <img src="{{ Storage::disk('local')->url('/avatars/'.auth()->id().'/avatar.jpeg', 'Contents')  }}" class="img-circle"
+                    <img src="{{ Storage::disk('local')->url('/avatars/'.auth()->id().'/avatar.' . $profile['avatar'], 'Contents')  }}" class="img-circle"
                          alt="User Image"/>
                 </div>
 
                 <!-- Name Field -->
                 <div class="form-group control-label">
                     {!! Form::label('name', 'Name:') !!}
-                    <p>{!! $profile->name !!}</p>
+                    <p>{!! $profile['name'] !!}</p>
                 </div>
 
                 <div class="form-group control-label">
                     {!! Form::label('id', 'Id:') !!}
-                    <p>{!! $profile->email !!}</p>
+                    <p>{!! $profile['email'] !!}</p>
                 </div>
             </div>
         </div>

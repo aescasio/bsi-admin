@@ -6,8 +6,12 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ Storage::disk('local')->url('/avatars/'.auth()->id().'/avatar.jpeg', 'Contents')  }}" class="img-circle"
+                @if( Storage::disk('local')->exist('/avatars/'.auth()->id().'/avatar.'.Auth::user()->avatar))
+                <img src="{{ Storage::disk('local')->url('/avatars/'.auth()->id().'/avatar.'.Auth::user()->avatar, 'Contents')  }}" class="img-circle"
                      alt="User Image"/>
+                @else
+
+                @endif
             </div>
             <div class="pull-left info">
                 @if (Auth::guest())
