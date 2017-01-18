@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
+use League\Flysystem\Filesystem;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
